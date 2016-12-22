@@ -5,3 +5,7 @@ node('master') {
   }
 }
 
+stage('Test') {
+    sh './simplehttpserver/tests/nittests.sh ./simplehttpserver/'
+  }
+
