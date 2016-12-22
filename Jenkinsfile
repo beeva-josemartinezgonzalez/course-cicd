@@ -5,7 +5,7 @@ node('master') {
   }
 
 stage('Test') {
-    sh './simplehttpserver/tests/nittests.sh ./simplehttpserver/'
+    sh './simplehttpserver/tests/unittests.sh ./simplehttpserver/'
   }
 
 }
