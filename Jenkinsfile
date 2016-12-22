@@ -26,5 +26,12 @@ stage('Deploy') {
     sh "mv /opt/${env.JOB_NAME}-${env.BUILD_ID}/httpserver.py /opt/${env.JOB_NAME}-${env.BUILD_ID}/httpserver-${env.JOB_NAME}.py"
   }
 
+stage('Functional tests') {
+    sh "python3 /opt/${env.JO_NAME}-${env.BUILD_ID}/httpserver-${env.JOB_NAME}.py &"
+    sh 'nc -z -v -w5 54.154.95.222 8008'
+    sh "pkill -f httpserver-${env.JOB_NAME}.py"
+  }
+
+
 }
 
